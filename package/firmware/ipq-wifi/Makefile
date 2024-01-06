@@ -5,10 +5,10 @@ PKG_NAME:=ipq-wifi
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL=$(PROJECT_GIT)/project/firmware/qca-wireless.git
-PKG_SOURCE_DATE:=2024-01-06
-PKG_SOURCE_VERSION:=71f45cff8944405b7cc2bf5c19df2bd8fe7f2421
-PKG_MIRROR_HASH:=90c3c1659c54cdb4685d0a71633746c1000230e459801eb8ce12c805a994cc37
+PKG_SOURCE_URL=https://github.com/testuser7/firmware_qca-wireless.git
+PKG_SOURCE_DATE:=2024-02-21
+PKG_SOURCE_VERSION:=f2fd57390e8ca815811d39f69ee9b88a3edbd4f3
+PKG_MIRROR_HASH:=5f2c7bdadec5a6856f5f65a7ee452fadcf695ac5b29c50c5930f4a4536c722e3
 
 PKG_FLAGS:=nonshared
 
@@ -85,7 +85,7 @@ define ipq-wifi-install-one
     $(call ipq-wifi-install-one-to,$(1),$(2),QCA9984/hw1.0),\
   $(if $(filter $(suffix $(1)),.QCA99X0 .qca99x0),\
     $(call ipq-wifi-install-one-to,$(1),$(2),QCA99X0/hw2.0),\
-  $(if $(filter $(suffix $(1)),.IPQ8074 .ipq8074 .ipq8174),\
+  $(if $(filter $(suffix $(1)),.IPQ8074 .ipq8074),\
     $(call ipq-wifi-install-ath11-one-to,$(1),$(2),IPQ8074/hw2.0),\
   $(if $(filter $(suffix $(1)),.QCN9074 .qcn9074),\
     $(call ipq-wifi-install-ath11-one-to,$(1),$(2),QCN9074/hw1.0),\
